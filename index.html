@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Donasi</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: roll 5s forwards;
+        }
+
+        @keyframes roll {
+            0% {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            100% {
+                top: 0;
+                left: 0;
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .whatsapp-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content .button:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .button {
+            background-color: #3e8e41;
+        }
+
+        .notification {
+            background-color: #ff9800;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function showNotification(message) {
+            // Hapus semua notifikasi sebelumnya
+            document.querySelectorAll('.notification').forEach(el => el.remove());
+
+            const notificationDiv = document.createElement('div');
+            notificationDiv.className = 'notification';
+            notificationDiv.innerHTML = message;
+            document.body.appendChild(notificationDiv);
+        }
+
+        function showVPSHostdata() {
+            const message = `<strong>LIST HARGA VPS KHUSUS BOT</strong><br>
+                TIDAK BISA DI INSTALL PANEL<br><br>
+                <strong>List CPU VPS:</strong><br>
+                Indo: Intel Xeon CPU E5-2470 (2,4 GHz)<br>
+                USA: AMD RYZEN 7 5700G (2,850 GHz)<br>
+                EURO: Intel Xeon CPU E5-2620 v4 (2.10 GHz)<br>
+                Jerman: AMD Ryzen 7 Pro 8700GE (2,728 GHz)<br><br>
+                <strong>REGION SG:</strong><br>
+                1GB1C: 22 (kosong)<br>
+                2GB1C: 33<br>
+                4GB2C: 60K<br>
+                8GB4C: 125K<br><br>
+                <strong>REGION USA & Jerman:</strong><br>
+                1GB1C: 15K<br>
+                2GB1C: 25K<br>
+                4GB2C: 50K<br><br>
+                <strong>Region Indonesia:</strong><br>
+                1GB1C: 20K<br>
+                2GB1C: 30K<br>
+                4GB2C: 60K<br><br>
+                <strong>Region Euro (Eropa):</strong><br>
+                1GB1C: 20K<br>
+                4GB1C: 30K<br>
+                6GB2C: 60K<br>`;
+            showNotification(message);
+        }
+
+        function showVPSByteVirt() {
+            const message = `<strong>List VPS ByteVirt</strong><br>
+                Harga berdasarkan kurs dolar Amerika<br><br>
+                <strong>Region USA Biasa:</strong><br>
+                CPU: Intel Xeon E3-1241 V3 (3.499 GHz)<br>
+                <strong>Region Singapura & Jepang:</strong><br>
+                CPU: AMD RYZEN 9 3900X (3.799 GHz)<br>
+                <strong>Region USA Performance:</strong><br>
+                CPU: AMD RYZEN 9 7950 X3 (4.199 GHz)<br><br>
+                <strong>Harga:</strong><br>
+                <strong>USA Biasa:</strong><br>
+                RAM 2 GB 1 core: $2.6<br>
+                RAM 4 GB 2 core: $4.1<br>
+                RAM 5 GB 3 core: $6.2<br><br>
+                <strong>USA Performance:</strong><br>
+                RAM 2 GB 1 core: $4.1<br>
+                RAM 4 GB 2 core: $6.1<br><br>
+                <strong>Jepang & Singapura:</strong><br>
+                RAM 2 GB 2 core: $3.5<br>
+                RAM 4 GB 2 core: $5.1<br>`;
+            showNotification(message);
+        }
+
+        function showVPSContabo() {
+            const message = `<strong>VPS coming soon</strong>`;
+            showNotification(message);
+        }
+    </script>
+</head>
+<body>
+    <video class="video-bg" autoplay muted loop>
+        <source src="https://pomf2.lain.la/f/kbkq2udi.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <!-- Tambahkan elemen audio untuk musik latar -->
+    <audio id="background-music" src="https://pomf2.lain.la/f/79xj9urm.mp3" autoplay loop></audio>
+
+    <div class="container">
+        <div class="profile-section">
+            <img src="https://nvlgroup.my.id/f/tw0w2vfg.jpg" alt="Profile Picture" class="profile-pic">
+            <h2>profil nauval</h2>
+        </div>
+        <div class="right">
+            <a href="https://api.fdteam.my.id" class="button">API</a>
+            <a href="https://nvlgroup.my.id" class="button">Uploader</a>
+            <a href="https://api.fdteam.my.id/donasi" class="button">Donasi</a>
+            <a href="https://wa.me/6285336580720" class="whatsapp-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo"> Owner: 6285336580720
+            </a>
+            <a href="https://wa.me/6282280282014" class="whatsapp-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo"> Bot: 6282280282014
+            </a>
+        </div>
+        <div class="dropdown">
+    
+            <button class="button" onclick="showVPSHostdata()">VPS Hostdata</button>
+            <button class="button" onclick="showVPSByteVirt()">VPS ByteVirt</button>
+            <button class="button" onclick="showVPSContabo()">VPS Contabo</button>
